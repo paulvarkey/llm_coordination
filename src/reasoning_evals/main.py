@@ -73,13 +73,13 @@ class LLMManager:
                 self.inference_fn = self.run_vicuna_inference
         else:
             if self.model_type == 'openai':
-                self.akey = os.getenv("AZURE_OPENAI_ENDPOINT")
-                self.org = os.getenv("AZURE_OPENAI_API_KEY")
-                # self.client = OpenAI(api_key = self.akey, organization = self.org)
+                self.azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+                self.api_key= os.getenv("AZURE_OPENAI_API_KEY")
+                self.api_version = os.getenv("AZURE_OPENAI_API_VERSION")
                 self.client = AzureOpenAI(
-                    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-                    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-                    api_version="2023-05-15"
+                    azure_endpoint = self.azure_endpoint, 
+                    api_key=self.api_key,
+                    api_version=self.api_version
                 )
                 self.inference_fn = self.run_openai_inference
             else:
@@ -521,6 +521,7 @@ def extract_test_df(df, n):
     
 TEST = False 
 if __name__ == '__main__':
+    from dotenv import load_dotenv; load_dotenv()
     df = pd.read_csv('data/single_turn_trials.csv')
     # if TEST:
     #     df = extract_test_df(df, 2)
@@ -543,10 +544,12 @@ if __name__ == '__main__':
     # model_type = 'llama'
     # model = 'random'
     # model_type = 'baseline'
-    model = 'gpt-35-turbo'
-    model_type = 'openai'
+    # model = 'gpt-35-turbo'
+    # model_type = 'openai'
     # model = 'gpt-4-0125'
     # model_type = 'openai'
+    model = "o1-mini"
+    model_type = 'openai'
     timestamp = datetime.now()
     if '/' in model:
         model_nm = model.split('/')[-1]
