@@ -97,13 +97,13 @@ class LLMManager:
         self.gpt3_cost = 0
         self.gpt4_cost = 0
         if self.model_type == 'openai':
-            self.akey = os.getenv("AZURE_OPENAI_ENDPOINT")
-            self.org = os.getenv("AZURE_OPENAI_API_KEY")
-            # self.client = OpenAI(api_key = self.akey, organization = self.org)
+            self.azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+            self.api_key= os.getenv("AZURE_OPENAI_API_KEY")
+            self.api_version = os.getenv("AZURE_OPENAI_API_VERSION")
             self.client = AzureOpenAI(
-                azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-                api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-                api_version="2023-05-15"
+                azure_endpoint = self.azure_endpoint, 
+                api_key=self.api_key,
+                api_version=self.api_version
             )
         else:
             self.client = OpenAI(
