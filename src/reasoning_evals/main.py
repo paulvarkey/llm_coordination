@@ -101,14 +101,22 @@ class LLMManager:
         
 
     def run_openai_inference(self, messages):
-        completion = self.client.chat.completions.create(
-            messages = messages,
-            model=self.model_name,
-            temperature=self.temperature,
-            top_p=self.top_p,
-            frequency_penalty=self.frequency_penalty,
-            presence_penalty=self.presence_penalty
-        )
+        if self.model_name.startswith("o1"):
+            completion = self.client.chat.completions.create(
+                messages = messages,
+                model=self.model_name,
+                frequency_penalty=self.frequency_penalty,
+                presence_penalty=self.presence_penalty
+            )
+        else:
+            completion = self.client.chat.completions.create(
+                messages = messages,
+                model=self.model_name,
+                temperature=self.temperature,
+                top_p=self.top_p,
+                frequency_penalty=self.frequency_penalty,
+                presence_penalty=self.presence_penalty
+            )
         # print("INFERENCE STRING: ", completion.choices[0].message.content)
         total_tokens = completion.usage.total_tokens
         cur_cost =  0.015 * (total_tokens / 1000)
@@ -245,13 +253,23 @@ class TestLLMCoordination:
     
     def run_inference(self, directive, game_desc, question):
         if self.llm.model_type == 'openai':
-            messages = [
-                {"role": "system", "content": directive},
-                {"role": "user", "content": game_desc},
-                {"role": "assistant", "content": 'Got it!'},
-               
-                {"role": "user", "content": question},
-            ]
+            # Special handling for o1-mini: no system role support
+            if self.llm.model_name == "o1-mini":
+                # Prepend directive to the first user message, remove system entry
+                user_content = f"{directive}\n\n{game_desc}"
+                messages = [
+                    {"role": "user", "content": user_content},
+                    {"role": "assistant", "content": 'Got it!'},
+                    {"role": "user", "content": question},
+                ]
+            else:
+                messages = [
+                    {"role": "system", "content": directive},
+                    {"role": "user", "content": game_desc},
+                    {"role": "assistant", "content": 'Got it!'},
+                
+                    {"role": "user", "content": question},
+                ]
         elif self.model_type == 'mistral':
             messages = [
                 # {"role": "system", "content": "You are a helpful assistant."},
