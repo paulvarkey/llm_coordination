@@ -1,0 +1,16 @@
+TEST FILE: all
+MODEL: o1-mini
+MODEL TYPE: openai
+Environment Comprehension Score: 0.5656565656565656 +/- 0.014868284286747236
+Theory of Mind Score: 0.4090909090909091 +/- 0.01889725952916132
+Joint Planning Score: 0.35353535353535354 +/- 0.01091033787610751
+Overcooked Environment Comprehension Score: 0.6666666666666666 +/- 0.03600411499115479
+Overcooked Theory of Mind Score: 0.4166666666666667 +/- 0.03600411499115479
+Overcooked Joint Planning Score: 0.4166666666666667 +/- 0.027216552697590882
+Hanabi Environment Comprehension Score: 0.5 +/- 0.016835875742536838
+Hanabi Theory of Mind Score: 0.2261904761904762 +/- 0.03888078956798696
+Hanabi Joint Planning Score: 0.2738095238095238 +/- 0.019440394783993484
+CollabGames Environment Comprehension Score: 0.5555555555555555 +/- 0.06928995160692485
+CollabGames Theory of Mind Score: 0.6851851851851851 +/- 0.015120307054217155
+CollabGames Joint Planning Score: 0.40740740740740744 +/- 0.01512030705421714
+Problems: []
