@@ -1,0 +1,16 @@
+TEST FILE: all
+MODEL: gpt-4o
+MODEL TYPE: openai
+Environment Comprehension Score: 0.7979797979797979 +/- 0.004123720105695583
+Theory of Mind Score: 0.6111111111111112 +/- 0.0109103378761075
+Joint Planning Score: 0.3686868686868687 +/- 0.01486828428674722
+Overcooked Environment Comprehension Score: 0.8666666666666667 +/- 0.027216552697590865
+Overcooked Theory of Mind Score: 0.6333333333333333 +/- 0.013608276348795448
+Overcooked Joint Planning Score: 0.31666666666666665 +/- 0.013608276348795433
+Hanabi Environment Comprehension Score: 0.7857142857142857 +/- 0.016835875742536838
+Hanabi Theory of Mind Score: 0.4880952380952381 +/- 0.02571722499368199
+Hanabi Joint Planning Score: 0.38095238095238093 +/- 0.025717224993681974
+CollabGames Environment Comprehension Score: 0.7407407407407408 +/- 0.03024061410843431
+CollabGames Theory of Mind Score: 0.7777777777777778 +/- 0.0
+CollabGames Joint Planning Score: 0.4074074074074074 +/- 0.01512030705421714
+Problems: []

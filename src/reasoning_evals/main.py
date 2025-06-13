@@ -566,7 +566,9 @@ if __name__ == '__main__':
     # model_type = 'openai'
     # model = 'gpt-4-0125'
     # model_type = 'openai'
-    model = "o1-mini"
+    # model = "o1-mini"
+    # model_type = 'openai'
+    model = "gpt-4o"
     model_type = 'openai'
     timestamp = datetime.now()
     if '/' in model:

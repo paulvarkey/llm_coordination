@@ -1,0 +1,16 @@
+TEST FILE: all
+MODEL: o1-mini
+MODEL TYPE: openai
+Environment Comprehension Score: 0.0 +/- 0.0
+Theory of Mind Score: 0.0 +/- 0.0
+Joint Planning Score: 0.0 +/- 0.0
+Overcooked Environment Comprehension Score: 0.0 +/- 0.0
+Overcooked Theory of Mind Score: 0.0 +/- 0.0
+Overcooked Joint Planning Score: 0.0 +/- 0.0
+Hanabi Environment Comprehension Score: 0.0 +/- 0.0
+Hanabi Theory of Mind Score: 0.0 +/- 0.0
+Hanabi Joint Planning Score: 0.0 +/- 0.0
+CollabGames Environment Comprehension Score: 0.0 +/- 0.0
+CollabGames Theory of Mind Score: 0.0 +/- 0.0
+CollabGames Joint Planning Score: 0.0 +/- 0.0
+Problems: []
